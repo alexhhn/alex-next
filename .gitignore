@@ -1,0 +1,9 @@
+node_modules/
+sanity.json
+.npm/
+.idea/
+.vscode/
+.next
+build
+.DS_Store
+*.tgz
