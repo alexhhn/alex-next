@@ -14,8 +14,14 @@
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "next": "^9.1.1",
+    "postcss-import": "^12.0.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "styled-jsx-plugin-postcss": "^2.0.1"
+  },
+  "devDependencies": {
+    "postcss-css-variables": "^0.13.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.7.0"
   }
 }

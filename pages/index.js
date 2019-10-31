@@ -1,6 +1,7 @@
 const Index = () => (
-  <div className="tull">
-    <p>Hello Next.js</p>
+  <div>
+    <h1>Welcome to Alex website.</h1>
+    <p>More info coming</p>
   </div>
 );
 

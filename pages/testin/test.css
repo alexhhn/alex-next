@@ -1,8 +1,9 @@
+@import "colors.css";
+
 .example {
   font-size: 50px;
 }
 
-
 .tull {
-  color: red;
+  color: var(--errorRed);
 }
