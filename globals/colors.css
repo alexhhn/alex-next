@@ -1,3 +1,9 @@
 :root {
   --errorRed: darkred;
+
+  /* dark theme */
+  --veryDarkBlue: #022c43;
+  --darkBlue: #053f5e;
+  --blue: #115173;
+  --accentColor: #ffd700;
 }

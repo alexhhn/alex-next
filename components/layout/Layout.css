@@ -1,4 +1,8 @@
+@import "colors.css";
+
 body {
   font-family: system-ui;
   overflow-wrap: break-word;
+  background-color: var(--veryDarkBlue);
+  color: white;
 }
