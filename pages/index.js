@@ -1,7 +1,12 @@
-const Index = () => (
-  <div className="tull">
-    <p>Hello Next.js</p>
-  </div>
-);
+import styled from 'styled-components';
 
-export default Index;
+export default () => (
+  <div>
+    <Title>My First Next.js Page</Title>
+    aewff
+  </div>
+)
+
+const Title = styled.h1`
+  color: red;
+`;
