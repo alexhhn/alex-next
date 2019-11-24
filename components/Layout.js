@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 function Layout(props) {
   return (
-    <div className="page-layout">
+    <AppLayout>
       {/* <Grid>
         <Item>1</Item>
         <Item>2</Item>
@@ -13,11 +13,20 @@ function Layout(props) {
       </Grid> */}
       {/* <h1 className="example">Page header</h1> */}
       {props.children}
-    </div>
+      <style global jsx>{`
+        body {
+          margin: 0;
+        }
+      `}</style>
+    </AppLayout>
   );
 }
 
 export default Layout;
+
+export const AppLayout = styled.div`
+  max-height: 100vh;
+`;
 
 export const Grid = styled.div`
   display: grid;
