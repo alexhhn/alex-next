@@ -1,11 +1,9 @@
-import React from "react";
+import Layout from "../components/Layout";
 import App from "next/app";
-import Layout from "components/layout/Layout";
 
 class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
-
     return (
       <Layout>
         <Component {...pageProps} />
