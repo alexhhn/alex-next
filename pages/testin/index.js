@@ -1,7 +1,7 @@
 import css from "./test.css";
 
 const Index = () => (
-  <div className={css.tull}>
+  <div>
     <p>Hello ewaf.js</p>
   </div>
 );
