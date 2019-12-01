@@ -1,4 +1,12 @@
 import styled from "styled-components";
+import { formatWithOptions } from "util";
+
+{
+  //* ALL FONTS
+  /* font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Slab', serif;
+font-family: 'Roboto Mono', monospace; */
+}
 
 function Layout(props) {
   return (
@@ -16,6 +24,13 @@ function Layout(props) {
       <style global jsx>{`
         body {
           margin: 0;
+          font-family: "Roboto", sans-serif;
+          color: #2e2e2e;
+        }
+
+        h1 {
+          font-family: "Roboto Slab", serif;
+          font-weight: 400;
         }
       `}</style>
     </AppLayout>
