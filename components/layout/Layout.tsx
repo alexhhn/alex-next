@@ -1,6 +1,4 @@
-import css from "./Layout.css";
-
-function Layout(props) {
+function Layout(props:any) {
   return (
     <div className="page-layout">
       <h1>Global header</h1>
