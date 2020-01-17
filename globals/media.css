@@ -1,5 +1,0 @@
-:root {
-  --mobile-width: 700px;
-}
-
-@custom-media --small-device (max-width: var(--mobile-width));

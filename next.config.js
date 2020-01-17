@@ -1,7 +1,7 @@
 module.exports = {
   webpack(config, options) {
     config.module.rules.push({
-      test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+      test: /\.(png|jpg|jpeg|gif|svg|eot|ttf|woff|woff2)$/,
       use: {
         loader: "url-loader",
         options: {

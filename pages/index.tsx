@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import AlexImg from "static/images/alex-portrait.png";
+import AlexImg from "public/images/alex-portrait.png";
 
 const Index = () => {
   return (
