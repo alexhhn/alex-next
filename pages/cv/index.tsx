@@ -13,8 +13,6 @@ const Home: NextPage<{ userAgent: string }> = ({ userAgent }) => (
     </LeftPanel> */}
     <Vr color={colors.darkGrey} />
     <Experience />
-
-    {/* <h1>Experiences</h1> */}
   </Container>
 );
 

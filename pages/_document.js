@@ -34,7 +34,6 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <title>Alex Nguyen</title>
           <link
             href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,700|Roboto+Slab:300,400|Roboto:400,500&display=swap"
             rel="stylesheet"
