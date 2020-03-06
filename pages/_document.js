@@ -34,9 +34,16 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <title>Alex Nguyen</title>
           <link
             href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,700|Roboto+Slab:300,400|Roboto:400,500&display=swap"
             rel="stylesheet"
+          />
+          <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet"/>
+          <link
+            rel="shortcut icon"
+            type="image/x-icon"
+            href="images/sharkfavicon.png"
           />
         </Head>
         <body>

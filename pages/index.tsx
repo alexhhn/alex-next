@@ -1,17 +1,21 @@
 import styled from "styled-components";
 import AlexImg from "public/images/alex-portrait.png";
+import AlexImgMobile from "public/images/alex-portrait-mobile.png";
+
+import devices from "shared/media";
 
 const Index = () => {
   return (
     <Container>
-      <img src={AlexImg} />
-      <RightArea>
+      <img className="desktopImg" src={AlexImg} />
+      <img className="mobileImg" src={AlexImgMobile} />
+      <WelcomeTextArea>
         <h1>Hi, I'm Alex</h1>
         <IntroText>
           A front-end developer based in Oslo, Norway. Feel free to browse my
           page!
         </IntroText>
-      </RightArea>
+      </WelcomeTextArea>
     </Container>
   );
 };
@@ -22,29 +26,41 @@ const Container = styled.div`
   height: 100%;
 
   img {
-    max-width: 45%;
-    height: 100vh;
     object-fit: cover;
+  }
+
+  .desktopImg {
+    display: none;
+
+    @media ${devices.notMobile} {
+      display: block;
+      max-width: 45%;
+      height: 100vh;
+    }
+  }
+
+  .mobileImg {
+    display: none;
+
+    @media ${devices.mobileOnly} {
+      display: block;
+      height: 40vh;
+    }
+  }
+
+  @media ${devices.mobileOnly} {
+    flex-direction: column;
   }
 `;
 
 const IntroText = styled.p`
-  font-size: 32px;
   font-family: "Roboto Slab", serif;
   font-weight: 300;
 `;
 
-const RightArea = styled.div`
+const WelcomeTextArea = styled.div`
   flex: 1;
-  padding: 50px 30px 0;
-
-  h1 {
-    font-size: 64px;
-  }
-
-  h2 {
-    font-size: 32px;
-  }
+  padding: 1em 2em 0;
 `;
 
 export default Index;
