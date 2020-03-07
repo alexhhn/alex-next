@@ -1,10 +1,15 @@
 import Cardbox from "components/cardbox/Cardbox";
-const Experience = () => (
-  <div>
-    <h1>Experience</h1>
-    <Cardbox></Cardbox>
-    <Cardbox></Cardbox>
-  </div>
-);
+import { experienceData } from "api/data";
+
+const Experience = () => {
+  const { title } = experienceData;
+  return (
+    <div>
+      <h1>{title}</h1>
+      {/* <Cardbox></Cardbox>
+    <Cardbox></Cardbox> */}
+    </div>
+  );
+};
 
 export default Experience;

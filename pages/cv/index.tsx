@@ -1,20 +1,28 @@
 import SourceTree from "../../components/source-tree/SourceTree";
-import { NextPage } from "next";
 import styled from "styled-components";
 import colors from "shared/colors";
 import ProfileHeader from "components/profile-header/ProfileHeader";
-import Experience from "./experience/Experience";
+import { useContext } from "react";
+import { LanguageContext } from "context/AppContext";
+import _find from "lodash/find";
+import { RenderPageByPath } from "./utils";
 
-const Home: NextPage<{ userAgent: string }> = ({ userAgent }) => (
-  <Container>
-    {/* <LeftPanel>
-      <ProfileHeader />
-      <SourceTree />
-    </LeftPanel> */}
-    <Vr color={colors.darkGrey} />
-    <Experience />
-  </Container>
-);
+const Home = () => {
+  const { path } = useContext(LanguageContext);
+
+  return (
+    <div>
+      <Container>
+        <LeftPanel>
+          <ProfileHeader margin={"0 0 30px"} />
+          <SourceTree />
+        </LeftPanel>
+        <Vr color={colors.darkGrey} />
+        {RenderPageByPath(path)}
+      </Container>
+    </div>
+  );
+};
 
 const Container = styled.div`
   display: flex;
@@ -23,16 +31,12 @@ const Container = styled.div`
 const LeftPanel = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 32px 24px;
 `;
 
 const Vr = styled.div`
   border-left: 1px solid ${props => props.color};
   height: 100vh;
 `;
-
-Home.getInitialProps = async ({ req }) => {
-  const userAgent = req ? req.headers["user-agent"] || "" : navigator.userAgent;
-  return { userAgent };
-};
 
 export default Home;

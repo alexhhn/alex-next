@@ -1,18 +1,25 @@
 import AlexForte from "public/images/alex-forte.jpeg";
 import styled from "styled-components";
 
-const ProfileHeader = () => <Container>
-    <img src={AlexForte}/>
+interface Props {
+  margin?: string;
+}
+
+const ProfileHeader = ({ margin }: Props) => (
+  <Container margin={margin}>
+    <img src={AlexForte} />
     <div>
       <strong>ALEX</strong>
-      <p>#brogrammer</p>
-      <p>#casualgamer</p>
+      <pre>#brogrammer</pre>
+      <pre>#casualgamer</pre>
     </div>
-</Container>
+  </Container>
+);
 
-const Container = styled.div`
+const Container = styled.div<Props>`
   display: flex;
   width: 100%;
+  margin: ${props => (props.margin ? props.margin : "0")};
 
   img {
     width: 109px;
@@ -21,7 +28,7 @@ const Container = styled.div`
     border-radius: 50%;
   }
 
-  p {
+  pre {
     margin: 0;
   }
 
