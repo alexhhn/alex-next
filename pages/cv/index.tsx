@@ -3,14 +3,14 @@ import styled from "styled-components";
 import colors from "shared/colors";
 import ProfileHeader from "components/profile-header/ProfileHeader";
 import { useContext } from "react";
-import { LanguageContext } from "context/AppContext";
+import { PathContext } from "context/AppContext";
 import _find from "lodash/find";
 import { RenderPageByPath } from "./utils";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 
 const Home: NextPage<{ userAgent: string }> = ({ userAgent }) => {
-  const { path } = useContext(LanguageContext);
+  const { path } = useContext(PathContext);
   const router = useRouter();
   const { slug } = router.query;
 

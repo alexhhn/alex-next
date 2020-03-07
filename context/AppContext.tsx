@@ -5,7 +5,7 @@ export interface AppContextInterface {
   setPath: (path: string) => void;
 }
 
-export const LanguageContext = React.createContext<AppContextInterface>({
+export const PathContext = React.createContext<AppContextInterface>({
   path: "/",
   setPath: () => {}
 });
