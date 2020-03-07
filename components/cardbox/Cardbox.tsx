@@ -3,27 +3,32 @@ import styled from "styled-components";
 import ForteLogo from "public/images/forte-logo.png";
 import devices from "shared/media";
 
-const Cardbox = () => (
-  <div>
+interface Props {
+  key: number;
+  data: Experience;
+}
+
+const Cardbox = ({ data }: Props) => {
+  const { title, description, jobTitle, imgSrc, buzzwords, periode } = data;
+  return (
     <Wrapper variant="outlined">
       <Header>
         <div>
-          <img src={ForteLogo} />
-          <h2>Forte Digital</h2>
+          <img src={`images/${imgSrc}`} />
+          <h2>{title}</h2>
         </div>
-        <p>06.2019 - now</p>
+        <p>{periode}</p>
       </Header>
-      <h3>Front-end consultant</h3>
-      <p>
-        Forte_ er et konsulentselskap med kompetanse innen leveranseledelse,
-        rådgivning og konseptutvikling, UX/design, utvikling og kontinuerlig
-        forbedring av løsninger i drift. Som IT konsulent hos Forte_ jobber jeg
-        med spennende prosjekter ved hjelp av moderne front-end teknologi.
-      </p>
-      <pre>#consulting #frontend #sanity #cms</pre>
+      <h3>{jobTitle}</h3>
+      <p>{description}</p>
+      <code>
+        {buzzwords.map((word, i) => (
+          <span key={i}>#{word} </span>
+        ))}
+      </code>
     </Wrapper>
-  </div>
-);
+  );
+};
 
 const Wrapper = styled(Card)`
   display: flex;

@@ -1,5 +1,6 @@
 import css from "styled-jsx/css";
 import devices from "shared/media";
+import colors from "shared/colors";
 
 export default css.global`
   :root {
@@ -17,6 +18,7 @@ export default css.global`
     font-family: "Red Hat Text", sans-serif;
     font-size: 2rem;
     color: "2E2D2D";
+    background-color: ${colors.background};
   }
 
   h1,
@@ -42,6 +44,7 @@ export default css.global`
   h3,
   h4 {
     font-family: "Red Hat Display", sans-serif;
+    margin-top: 0;
   }
 
   a {
@@ -56,6 +59,10 @@ export default css.global`
   p,
   pre {
     margin-top: 0;
+  }
+
+  code {
+    color: #0d47a1;
   }
 
   @media ${devices.mobileOnly} {

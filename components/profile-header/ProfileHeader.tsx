@@ -10,8 +10,8 @@ const ProfileHeader = ({ margin }: Props) => (
     <img src={AlexForte} />
     <div>
       <strong>ALEX</strong>
-      <pre>#brogrammer</pre>
-      <pre>#casualgamer</pre>
+      <code>#brogrammer</code>
+      <code>#casualgamer</code>
     </div>
   </Container>
 );
@@ -28,13 +28,15 @@ const Container = styled.div<Props>`
     border-radius: 50%;
   }
 
-  pre {
+  code {
     margin: 0;
   }
 
   div {
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
+    margin: 0 0 20px 14px;
   }
 `;
 

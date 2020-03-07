@@ -2,12 +2,13 @@ import Cardbox from "components/cardbox/Cardbox";
 import { experienceData } from "api/data";
 
 const Experience = () => {
-  const { title } = experienceData;
+  const { data } = experienceData;
   return (
     <div>
-      <h1>{title}</h1>
-      {/* <Cardbox></Cardbox>
-    <Cardbox></Cardbox> */}
+      <h1>Experience</h1>
+      {data.map((element: Experience, i) => {
+        return <Cardbox key={i} data={element} />;
+      })}
     </div>
   );
 };

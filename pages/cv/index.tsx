@@ -6,37 +6,47 @@ import { useContext } from "react";
 import { LanguageContext } from "context/AppContext";
 import _find from "lodash/find";
 import { RenderPageByPath } from "./utils";
+import { NextPage } from "next";
+import { useRouter } from "next/router";
 
-const Home = () => {
+const Home: NextPage<{ userAgent: string }> = ({ userAgent }) => {
   const { path } = useContext(LanguageContext);
+  const router = useRouter();
+  const { slug } = router.query;
 
   return (
-    <div>
-      <Container>
-        <LeftPanel>
-          <ProfileHeader margin={"0 0 30px"} />
-          <SourceTree />
-        </LeftPanel>
-        <Vr color={colors.darkGrey} />
-        {RenderPageByPath(path)}
-      </Container>
-    </div>
+    <Wrapper>
+      <Sidebar>
+        <ProfileHeader margin={"0 0 30px"} />
+        <SourceTree />
+      </Sidebar>
+      <Content>
+        {path ? RenderPageByPath(path) : RenderPageByPath(slug)}
+      </Content>
+    </Wrapper>
   );
 };
 
-const Container = styled.div`
+const Wrapper = styled.div`
   display: flex;
 `;
 
-const LeftPanel = styled.div`
+const Sidebar = styled.div`
   display: flex;
   flex-direction: column;
   padding: 32px 24px;
+  background-color: ${colors.background};
+  border-right: 1px solid ${colors.grey};
+  min-height: 100vh;
 `;
 
-const Vr = styled.div`
-  border-left: 1px solid ${props => props.color};
-  height: 100vh;
+const Content = styled.div`
+  padding: 40px;
 `;
+
+Home.getInitialProps = async ({ req }) => {
+  const userAgent = req ? req.headers["user-agent"] || "" : navigator.userAgent;
+  return { userAgent };
+};
 
 export default Home;
