@@ -3,8 +3,8 @@ import { FolderOpen } from "@styled-icons/fa-regular/FolderOpen";
 import styled from "styled-components";
 import { useContext } from "react";
 import { PathContext } from "context/AppContext";
-import { File } from "@styled-icons/boxicons-regular/File";
-import { Css3 } from "@styled-icons/typicons/Css3";
+import TreeItemFiles from "./TreeItemFiles";
+import { useRouter } from "next/router";
 
 interface Props {
   name: string;
@@ -15,65 +15,42 @@ interface Props {
 
 const TreeItem = ({ name, path, isOpen, containFiles }: Props) => {
   const { setPath } = useContext(PathContext);
-
   const isBold = isOpen && containFiles;
+  const router = useRouter();
 
-  return (
+  const _renderContent = () => (
     <Wrapper onClick={() => setPath(path)}>
-      <FileRow>
+      <FolderRow>
         {isOpen ? <FolderOpen size={24} /> : <Folder size={24} />}
         <pre>{isBold ? <strong>{name}</strong> : name}</pre>
-      </FileRow>
-      {isBold && (
-        <Files>
-          <FileRow>
-            <File size={24} />
-            <pre>
-              <strong>
-                {name}.<span>tsx</span>
-              </strong>
-            </pre>
-          </FileRow>
-          <FileRow>
-            <Css3 size={24} />
-            <pre>
-              <strong>
-                {name}.<span>css</span>
-              </strong>
-            </pre>
-          </FileRow>
-        </Files>
-      )}
+      </FolderRow>
+      {isBold && <TreeItemFiles name={name} />}
     </Wrapper>
   );
+
+  const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    margin-bottom: 14px;
+
+    &:last-child {
+      margin-bottom: 8px;
+    }
+
+    pre {
+      margin-left: 8px;
+      font-size: 20px;
+      text-transform: lowercase;
+      margin-bottom: 10px;
+    }
+  `;
+
+  const FolderRow = styled.div`
+    display: flex;
+  `;
+
+  return _renderContent();
 };
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  margin-bottom: 10px;
-
-  pre {
-    margin-left: 8px;
-    font-size: 20px;
-    text-transform: lowercase;
-  }
-`;
-
-const FileRow = styled.div`
-  display: flex;
-`;
-
-const Files = styled.div`
-  margin-left: 20px;
-  pre {
-    text-transform: capitalize;
-  }
-
-  span {
-    text-transform: lowercase;
-  }
-`;
 
 export default TreeItem;

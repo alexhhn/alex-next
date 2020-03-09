@@ -13,7 +13,11 @@ export default {
   mobileOnly: `(max-width: ${sizes.mobileL})`,
   notMobile: `(min-width: ${sizes.mobileL})`,
   tablet: `(min-width: ${sizes.tablet})`,
+  notTablet: `(min-width: ${sizes.tablet})`,
+  tabletOnly: `(max-width: ${sizes.tablet})`,
   laptop: `(min-width: ${sizes.laptop})`,
+  laptopOnly: `(max-width: ${sizes.laptop})`,
+
   laptopL: `(min-width: ${sizes.laptopL})`,
   desktop: `(min-width: ${sizes.desktop})`,
   desktopL: `(min-width: ${sizes.desktop})`

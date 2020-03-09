@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import AlexImg from "public/images/alex-portrait.png";
 import AlexImgMobile from "public/images/alex-portrait-mobile.png";
-
 import devices from "shared/media";
+import SourceTree from "components/source-tree/SourceTree";
 
 const Index = () => {
   return (
@@ -15,6 +15,8 @@ const Index = () => {
           A front-end developer based in Oslo, Norway. Feel free to browse my
           page!
         </IntroText>
+        <hr />
+        <SourceTree fromTopPage={true} />
       </WelcomeTextArea>
     </Container>
   );
@@ -32,7 +34,7 @@ const Container = styled.div`
   .desktopImg {
     display: none;
 
-    @media ${devices.notMobile} {
+    @media ${devices.mobile} {
       display: block;
       max-width: 45%;
       height: 100vh;
@@ -44,7 +46,7 @@ const Container = styled.div`
 
     @media ${devices.mobileOnly} {
       display: block;
-      height: 40vh;
+      height: 45vh;
     }
   }
 
@@ -54,13 +56,35 @@ const Container = styled.div`
 `;
 
 const IntroText = styled.p`
-  font-family: "Roboto Slab", serif;
-  font-weight: 300;
+  font-size: 24px;
+
+  @media ${devices.tabletOnly} {
+    &:before {
+      content: "-";
+      margin-left: -25px;
+      padding-right: 15px;
+    }
+  }
 `;
 
 const WelcomeTextArea = styled.div`
   flex: 1;
-  padding: 1em 2em 0;
+  padding: 0 60px 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h1 {
+    margin-bottom: 30px;
+  }
+
+  hr {
+    margin: 30px 0 60px;
+  }
+
+  @media ${devices.laptopOnly} {
+    padding: 30px 50px;
+  }
 `;
 
 export default Index;

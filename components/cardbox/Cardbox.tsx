@@ -35,6 +35,7 @@ const Wrapper = styled(Card)`
   font-size: 20px;
   flex-direction: column;
   padding: 40px;
+  margin-bottom: 20px;
 
   &.MuiPaper-root {
     background-color: #fafafa;

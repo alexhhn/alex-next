@@ -39,6 +39,10 @@ export default css.global`
     font-size: 2.2rem;
   }
 
+  hr {
+    border-top: 1px solid ${colors.darkGrey};
+  }
+
   h1,
   h2,
   h3,
@@ -53,7 +57,7 @@ export default css.global`
   }
 
   a:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
 
   p,
