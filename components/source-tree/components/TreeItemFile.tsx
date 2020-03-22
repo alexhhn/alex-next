@@ -7,12 +7,13 @@ interface Props {
   type: string;
   normalFontWeight?: boolean;
   isLowercase?: boolean;
+  compact?: boolean;
 }
 
-const TreeItemFile = ({ name, type, isBold, isLowercase }: Props) => {
+const TreeItemFile = ({ name, type, isLowercase, compact }: Props) => {
   return (
-    <Wrapper isLowercase={isLowercase ? isLowercase : false}>
-      {type === "tsx" ? <File size={24} /> : <Css3 size={24} />}
+    <Wrapper compact={compact} isLowercase={isLowercase ? isLowercase : false}>
+      {type === "tsx" ? <File size={compact ? 18 : 24} /> : <Css3 size={compact ? 18 : 24} />}
       <pre>
         {name}.<span>{type}</span>
       </pre>
@@ -20,16 +21,16 @@ const TreeItemFile = ({ name, type, isBold, isLowercase }: Props) => {
   );
 };
 
-const Wrapper = styled.div<{ isLowercase: boolean }>`
+const Wrapper = styled.div<{ isLowercase: boolean, compact?: boolean }>`
   display: flex;
   margin-top: 5px;
 
   pre {
     ${props =>
-      props.isLowercase
-        ? `text-transform: :lowercase; font-weight: 400`
-        : `  text-transform: :capitalize; font-weight: 600`};
-    font-size: 20px;
+    props.isLowercase
+      ? `text-transform: :lowercase; font-weight: 400`
+      : `  text-transform: :capitalize; font-weight: 600`};
+    font-size: ${props => props.compact ? "14px" : "20px"};
     margin-left: 5px;
   }
 

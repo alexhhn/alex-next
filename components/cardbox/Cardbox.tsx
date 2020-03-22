@@ -48,7 +48,7 @@ const Wrapper = styled(Card)`
   }
 
   h3 {
-    margin-bottom: 20px;
+    margin: 20px 0 10px;
   }
 
   @media ${devices.mobileOnly} {

@@ -1,4 +1,5 @@
 import SourceTree from "../../components/source-tree/SourceTree";
+import SourceTreeCompact from "components/source-tree/SourceTreeCompact";
 import styled from "styled-components";
 import colors from "shared/colors";
 import ProfileHeader from "components/profile-header/ProfileHeader";
@@ -9,8 +10,6 @@ import { RenderPageByPath } from "./utils";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import devices from "shared/media";
-import Fab from "@material-ui/core/Fab";
-import { Folder } from "@styled-icons/boxicons-regular/Folder";
 
 const Home: NextPage<{ userAgent: string }> = ({ userAgent }) => {
   const { path } = useContext(PathContext);
@@ -24,7 +23,8 @@ const Home: NextPage<{ userAgent: string }> = ({ userAgent }) => {
         <SourceTree />
       </DesktopSideBar>
       <MobileTopBar>
-        <ProfileHeader margin={"30px"} />
+        <ProfileHeader />
+        <SourceTreeCompact />
       </MobileTopBar>
       <Content>
         {path ? RenderPageByPath(path) : RenderPageByPath(slug)}
@@ -41,6 +41,7 @@ const Wrapper = styled.div`
 
   @media ${devices.mobileOnly} {
     flex-direction: column;
+    padding: 24px;
   }
 `;
 
@@ -90,6 +91,10 @@ const MobileFab = styled.div`
 
 const Content = styled.div`
   padding: 40px;
+
+  @media ${devices.mobileOnly} {
+    padding: 0;
+  }
 `;
 
 Home.getInitialProps = async ({ req }) => {

@@ -72,6 +72,7 @@ export default css.global`
   @media ${devices.mobileOnly} {
     h1 {
       font-size: 32px;
+      margin-bottom: 12px;
     }
 
     h2 {

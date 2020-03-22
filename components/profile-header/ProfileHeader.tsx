@@ -1,5 +1,6 @@
 import AlexForte from "public/images/alex-forte.jpeg";
 import styled from "styled-components";
+import devices from "shared/media";
 
 interface Props {
   margin?: string;
@@ -37,6 +38,10 @@ const Container = styled.div<Props>`
     flex-direction: column;
     justify-content: flex-end;
     margin: 0 0 20px 14px;
+
+    @media ${devices.mobileOnly} {
+      margin: 0 0 20px 30px;
+    }
   }
 `;
 
