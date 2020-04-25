@@ -16,9 +16,15 @@ export default css.global`
   body {
     margin: 0;
     font-family: "Red Hat Text", sans-serif;
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: "2E2D2D";
-    background-color: ${colors.background};
+    background-color: ${colors.outerBackground};
+    // background-color: #f5f5f5;
+    // background-color: white;
+  }
+
+  span {
+    font-size: 1.4rem;
   }
 
   h1,
@@ -27,16 +33,17 @@ export default css.global`
   }
 
   h1 {
-    font-size: 6.4rem;
+    font-size: 4.8rem;
   }
 
   h2 {
-    font-size: 2.8rem;
+    font-size: 2.4rem;
   }
 
   h3 {
     font-weight: 500;
-    font-size: 2.2rem;
+    font-size: 2rem;
+    margin-bottom: 0.5em;
   }
 
   hr {

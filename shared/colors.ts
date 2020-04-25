@@ -4,6 +4,7 @@ const text = black;
 const lightGrey = "#f5f5f5";
 const grey = "#979797";
 const background = lightGrey;
+const outerBackground = '#191919'
 const lightBackground = "#fafafa";
 
 const colors = {
@@ -13,7 +14,8 @@ const colors = {
   lightGrey,
   grey,
   background,
-  lightBackground
+  lightBackground,
+  outerBackground
 };
 
 export default colors;

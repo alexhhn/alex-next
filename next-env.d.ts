@@ -2,6 +2,8 @@
 /// <reference types="next/types/global" />
 declare module "*.png";
 declare module "*.jpeg";
+declare module "*.mov";
+declare module "*.mp4";
 
 interface PageData {
   title: string;
