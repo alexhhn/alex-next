@@ -3,6 +3,7 @@ import AlexImg from "public/images/alex-portrait.png";
 import AlexImgMobile from "public/images/alex-portrait-mobile.png";
 import devices from "shared/media";
 import SourceTree from "components/source-tree/SourceTree";
+import colors from "shared/colors";
 
 const Index = () => {
   return (
@@ -26,6 +27,7 @@ const Container = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
+  background-color: ${colors.background};
 
   img {
     object-fit: cover;

@@ -24,6 +24,4 @@ export default Layout;
 
 export const AppLayout = styled.div`
   max-height: 100vh;
-  /* max-width: 1280px; */
-  margin: auto;
 `;

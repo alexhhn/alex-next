@@ -1,6 +1,5 @@
 import Card from "@material-ui/core/Card";
 import styled from "styled-components";
-import ForteLogo from "public/images/forte-logo.png";
 import devices from "shared/media";
 
 interface Props {
@@ -9,18 +8,31 @@ interface Props {
 }
 
 const Cardbox = ({ data }: Props) => {
-  const { title, description, jobTitle, imgSrc, buzzwords, periode } = data;
+  const {
+    title,
+    description,
+    jobTitle,
+    imgSrc,
+    buzzwords,
+    periode,
+    subTitle,
+  } = data;
   return (
     <Wrapper variant="outlined">
-      <Header>
-        <div>
-          <img src={`images/${imgSrc}`} />
-          <h2>{title}</h2>
-        </div>
-        <p>{periode}</p>
-      </Header>
-      <h3>{jobTitle}</h3>
-      <p>{description}</p>
+      <TopArea>
+        <Header>
+          <div>
+            <img src={`images/${imgSrc}`} />
+            <h2>{title}</h2>
+          </div>
+          <p>{periode}</p>
+        </Header>
+        <SubTitle>{subTitle}</SubTitle>
+      </TopArea>
+      <div>
+        <h3>{jobTitle}</h3>
+        <p>{description}</p>
+      </div>
       <code>
         {buzzwords.map((word, i) => (
           <span key={i}>#{word} </span>
@@ -32,9 +44,9 @@ const Cardbox = ({ data }: Props) => {
 
 const Wrapper = styled(Card)`
   display: flex;
-  font-size: 20px;
   flex-direction: column;
-  padding: 40px;
+  justify-content: space-around;
+  padding: 30px;
   margin-bottom: 20px;
 
   &.MuiPaper-root {
@@ -54,10 +66,17 @@ const Wrapper = styled(Card)`
   @media ${devices.mobileOnly} {
     padding: 18px;
     font-size: 16px;
+  }
+`;
 
-    h3 {
-      margin-bottom: 10px;
-    }
+const TopArea = styled.div`
+  h2,
+  p {
+    margin: 0;
+  }
+
+  p {
+    font-size: 16px;
   }
 `;
 
@@ -65,20 +84,17 @@ const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 0.8em;
+
   div {
     display: flex;
     align-items: center;
   }
+`;
 
-  h2,
-  p {
-    margin: 0;
-  }
-
-  p {
-    font-style: italic;
-    font-size: 16px;
-  }
+const SubTitle = styled.p`
+  font-style: italic;
+  margin: 0;
 `;
 
 export default Cardbox;

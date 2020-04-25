@@ -15,7 +15,6 @@ const Home: NextPage<{ userAgent: string }> = ({ userAgent }) => {
   const { path } = useContext(PathContext);
   const router = useRouter();
   const { slug } = router.query;
-
   return (
     <Wrapper>
       <DesktopSideBar>
@@ -24,7 +23,7 @@ const Home: NextPage<{ userAgent: string }> = ({ userAgent }) => {
       </DesktopSideBar>
       <MobileTopBar>
         <ProfileHeader />
-        <SourceTreeCompact />
+        {/* <SourceTreeCompact /> */}
       </MobileTopBar>
       <Content>
         {path ? RenderPageByPath(path) : RenderPageByPath(slug)}
@@ -38,6 +37,9 @@ const Home: NextPage<{ userAgent: string }> = ({ userAgent }) => {
 
 const Wrapper = styled.div`
   display: flex;
+  width: 100%;
+  max-width: 1680px;
+  margin: auto;
 
   @media ${devices.mobileOnly} {
     flex-direction: column;
@@ -50,6 +52,7 @@ const DesktopSideBar = styled.div`
   flex-direction: column;
   padding: 32px 24px;
   background-color: ${colors.background};
+  /* border-left: 1px solid ${colors.grey}; */
   border-right: 1px solid ${colors.grey};
   min-height: 100vh;
 
@@ -91,7 +94,8 @@ const MobileFab = styled.div`
 
 const Content = styled.div`
   padding: 40px;
-
+  background-color: ${colors.background};
+  width: 100%;
   @media ${devices.mobileOnly} {
     padding: 0;
   }
