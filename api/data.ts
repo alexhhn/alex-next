@@ -22,7 +22,7 @@ const experienceData: ExperienceData = {
       imgSrc: "intoit-logo.png",
       periode: "11.2019 - nåværende",
       description:
-        "A new team of NTNUs students are currently working with the project. I contribute with a mentor role - involve myself throughly in the development process, help managing the project in addition to solve any challenging development tasks the team might meet.",
+        "A new team of NTNUs students are currently working with the project. I contribute with a mentor role - involve myself throughly in the  process, help managing the project in addition to solve any challenging development tasks the team might meet.",
       buzzwords: [
         "mentor",
         "startup",

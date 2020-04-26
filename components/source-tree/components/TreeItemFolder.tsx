@@ -4,18 +4,20 @@ import styled from "styled-components";
 import { useContext } from "react";
 import { PathContext } from "context/AppContext";
 import TreeItemFile from "./TreeItemFile";
+import devices from "shared/media";
 
 interface Props {
   name: string;
-  path?: string;
+  isLowercase?: boolean;
   isOpen: boolean;
+  path?: string;
   containFiles: boolean;
   compact?: boolean;
 }
 
 const TreeItemFolder = ({
   name,
-  // path,
+  isLowercase,
   isOpen,
   containFiles,
   compact,
@@ -24,60 +26,65 @@ const TreeItemFolder = ({
   // const { setPath } = useContext(PathContext);
   const isBold = isOpen && containFiles;
 
-  const _renderContent = () => (
+  return (
     <Wrapper compact={compact}>
       <FolderRow>
         {isOpen ? (
-          <FolderOpen size={compact ? 18 : 24} />
+          <TreeItemFile
+            isLowercase={isLowercase}
+            name={name}
+            type={"folder-opened"}
+            compact={compact}
+            hideType
+            isBold
+          />
         ) : (
-          <Folder size={compact ? 18 : 24} />
+          <TreeItemFile
+            isLowercase={isLowercase}
+            name={name}
+            type={"folder"}
+            compact={compact}
+            hideType
+          />
         )}
-        <pre>{isBold ? <strong>{name}</strong> : name}</pre>
       </FolderRow>
+
       {isBold && (
         <Files>
-          <TreeItemFile name={name} type={"tsx"} />
-          <TreeItemFile name={name} type={"css"} />
+          <TreeItemFile name={name} type={"html"} compact={compact} isBold />
+          <TreeItemFile name={name} type={"css"} compact={compact} isBold />
         </Files>
       )}
     </Wrapper>
   );
-
-  const Wrapper = styled.div<{ compact?: boolean }>`
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    margin-bottom: 14px;
-
-    &:last-child {
-      margin-bottom: 8px;
-    }
-
-    pre {
-      margin-left: 8px;
-      font-size: ${(props) => (props.compact ? "14px" : "20px")};
-      text-transform: lowercase;
-      margin-bottom: 10px;
-      ${(props) => props.compact && `margin: 0 10px 0`}
-    }
-
-    span {
-      font-size: 20px;
-    }
-  `;
-
-  const FolderRow = styled.div`
-    display: flex;
-    &:hover {
-      font-weight: bold;
-    }
-  `;
-
-  const Files = styled.div`
-    margin-left: 20px;
-  `;
-
-  return _renderContent();
 };
 
+const Wrapper = styled.div<{ compact?: boolean }>`
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  margin-bottom: 12px;
+
+  @media ${devices.mobileOnly} {
+    margin: 0 0.25em 0.25em;
+  }
+`;
+
+const FolderRow = styled.div`
+  display: flex;
+  align-items: center;
+  text-transform: lowercase;
+
+  &:hover {
+    font-weight: bold;
+  }
+`;
+
+const Files = styled.div`
+  margin: 5px 0 0 20px;
+
+  @media ${devices.mobileOnly} {
+    margin: 5px 0 0 0.5em;
+  }
+`;
 export default TreeItemFolder;

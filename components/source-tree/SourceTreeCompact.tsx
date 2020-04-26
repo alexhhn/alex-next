@@ -5,57 +5,49 @@ import { useContext } from "react";
 import { PathContext } from "context/AppContext";
 import Link from "next/link";
 import TreeItemFile from "./components/TreeItemFile";
+import { useRouter } from "next/router";
 
-interface Props {
-  fromTopPage?: boolean;
-}
-
-const SourceTreeCompact = ({ fromTopPage }: Props) => {
-  const { path } = useContext(PathContext);
+const SourceTreeCompact = () => {
+  const router = useRouter();
+  const { slug } = router.query;
 
   return (
     <Container>
-      <TreeItemFolder name={"src"} isOpen={true} containFiles={false} path="/" compact />
+      <Link href={"/"}>
+        <a>
+          <TreeItemFolder
+            name={"src"}
+            isOpen={true}
+            containFiles={false}
+            path="/"
+            compact
+            isLowercase
+          />
+        </a>
+      </Link>
       <IndentItems>
         {pages.map((page, i) => {
-          if (fromTopPage) {
-            return (
-              <Link key={i} href={`/cv?slug=${path}`}>
-                <a>
-                  <TreeItemFolder
-                    compact={true}
-                    key={i}
-                    name={page.navigationTitle}
-                    path={page.path}
-                    isOpen={false}
-                    containFiles={false}
-                  />
-                </a>
-              </Link>
-            );
-          } else {
-            return (
+          return (
+            <Link key={i} href={`/cv?slug=${page.path}`}>
               <a key={i}>
                 <TreeItemFolder
-                  compact={true}
                   name={page.navigationTitle}
-                  path={page.path}
-                  isOpen={path === page.path ? true : false}
-                  containFiles={false}
+                  compact
+                  isOpen={slug === page.path ? true : false}
+                  containFiles={true}
                 />
               </a>
-            );
-          }
+            </Link>
+          );
         })}
       </IndentItems>
-      <IndentItems>
-        <Link href={"/"}>
-          <a>
-            <TreeItemFile name={"index"} type={"tsx"} isLowercase={true}
-              compact />
-          </a>
-        </Link>
-      </IndentItems>
+      <Link href={"/"}>
+        <a>
+          <IndexFileWrapper>
+            <TreeItemFile name={"index"} type={"html"} compact isLowercase />
+          </IndexFileWrapper>
+        </a>
+      </Link>
     </Container>
   );
 };
@@ -69,10 +61,13 @@ const Container = styled.div`
 `;
 
 const IndentItems = styled.div`
-  margin-left: 20px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  margin-left: 0.5em;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+`;
+
+const IndexFileWrapper = styled.div`
+  margin-left: 0.66em;
 `;
 
 export default SourceTreeCompact;

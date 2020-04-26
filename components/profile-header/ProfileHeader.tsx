@@ -1,4 +1,5 @@
 import AlexForte from "public/images/alex-forte.jpeg";
+
 import styled from "styled-components";
 import devices from "shared/media";
 
@@ -20,7 +21,7 @@ const ProfileHeader = ({ margin }: Props) => (
 const Container = styled.div<Props>`
   display: flex;
   width: 100%;
-  margin: ${props => (props.margin ? props.margin : "0")};
+  margin: ${(props) => (props.margin ? props.margin : "0")};
 
   img {
     width: 109px;

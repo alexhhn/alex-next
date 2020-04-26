@@ -7,11 +7,7 @@ import Link from "next/link";
 import TreeItemFile from "./components/TreeItemFile";
 import { useRouter } from "next/router";
 
-interface Props {
-  fromTopPage?: boolean;
-}
-
-const SourceTree = ({ fromTopPage }: Props) => {
+const SourceTree = () => {
   // const { path } = useContext(PathContext);
   // console.log("path :", path);
   const router = useRouter();
@@ -27,6 +23,7 @@ const SourceTree = ({ fromTopPage }: Props) => {
             isOpen={true}
             containFiles={false}
             path="/"
+            isLowercase
           />
         </a>
       </Link>
@@ -47,13 +44,15 @@ const SourceTree = ({ fromTopPage }: Props) => {
         })}
         <Link href={"/"}>
           <a>
-            <TreeItemFile
-              name={"index"}
-              type={"tsx"}
-              isLowercase={true}
-              // TODO: Need to reengineer path
-              isBold={!slug}
-            />
+            <IndexFileWrapper>
+              <TreeItemFile
+                name={"index"}
+                type={"html"}
+                isLowercase
+                // TODO: Need to reengineer path
+                isBold={!slug}
+              />
+            </IndexFileWrapper>
           </a>
         </Link>
       </IndentItems>
@@ -68,6 +67,10 @@ const Container = styled.div`
 
 const IndentItems = styled.div`
   margin-left: 20px;
+`;
+
+const IndexFileWrapper = styled.div`
+  margin-top: 0.8em;
 `;
 
 export default SourceTree;

@@ -17,7 +17,7 @@ const Index = () => {
           page!
         </IntroText>
         <hr />
-        <SourceTree fromTopPage={true} />
+        <SourceTree />
       </WelcomeTextArea>
     </Wrapper>
   );
