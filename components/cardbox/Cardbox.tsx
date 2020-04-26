@@ -47,7 +47,6 @@ const Wrapper = styled(Card)`
   flex-direction: column;
   justify-content: space-around;
   padding: 30px;
-  margin-bottom: 20px;
 
   &.MuiPaper-root {
     background-color: #fafafa;

@@ -5,49 +5,55 @@ import { useContext } from "react";
 import { PathContext } from "context/AppContext";
 import Link from "next/link";
 import TreeItemFile from "./components/TreeItemFile";
+import { useRouter } from "next/router";
 
 interface Props {
   fromTopPage?: boolean;
 }
 
 const SourceTree = ({ fromTopPage }: Props) => {
-  const { path } = useContext(PathContext);
+  // const { path } = useContext(PathContext);
+  // console.log("path :", path);
+  const router = useRouter();
+
+  const { slug } = router.query;
 
   return (
     <Container>
-      <TreeItemFolder name={"src"} isOpen={true} containFiles={false} path="/" />
+      <Link href={"/"}>
+        <a>
+          <TreeItemFolder
+            name={"src"}
+            isOpen={true}
+            containFiles={false}
+            path="/"
+          />
+        </a>
+      </Link>
       <IndentItems>
         {pages.map((page, i) => {
-          if (fromTopPage) {
-            return (
-              <Link key={i} href={`/cv?slug=${path}`}>
-                <a>
-                  <TreeItemFolder
-                    key={i}
-                    name={page.navigationTitle}
-                    path={page.path}
-                    isOpen={false}
-                    containFiles={false}
-                  />
-                </a>
-              </Link>
-            );
-          } else {
-            return (
+          return (
+            <Link key={i} href={`/cv?slug=${page.path}`}>
               <a key={i}>
                 <TreeItemFolder
                   name={page.navigationTitle}
-                  path={page.path}
-                  isOpen={path === page.path ? true : false}
+                  // path={page.path}
+                  isOpen={slug === page.path ? true : false}
                   containFiles={true}
                 />
               </a>
-            );
-          }
+            </Link>
+          );
         })}
         <Link href={"/"}>
           <a>
-            <TreeItemFile name={"index"} type={"tsx"} isLowercase={true} />
+            <TreeItemFile
+              name={"index"}
+              type={"tsx"}
+              isLowercase={true}
+              // TODO: Need to reengineer path
+              isBold={!slug}
+            />
           </a>
         </Link>
       </IndentItems>

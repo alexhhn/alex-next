@@ -142,8 +142,8 @@ const projectsData: ExperienceData = {
 
 const hobbyData: PageData = {
   title: "Livet mitt utenfor progging",
-  navigationTitle: "Life",
-  path: "hobby",
+  navigationTitle: "hobbies",
+  path: "hobbies",
 };
 
 const pages: PageData[] = [experienceData, projectsData, hobbyData];

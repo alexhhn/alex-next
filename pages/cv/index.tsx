@@ -26,7 +26,8 @@ const Home: NextPage<{ userAgent: string }> = ({ userAgent }) => {
         {/* <SourceTreeCompact /> */}
       </MobileTopBar>
       <Content>
-        {path ? RenderPageByPath(path) : RenderPageByPath(slug)}
+        {/* {path ? RenderPageByPath(path) : RenderPageByPath(slug)} */}
+        {RenderPageByPath(slug)}
       </Content>
       {/* <MobileFab>
         <Folder size={24} /> <pre>src</pre>
@@ -39,7 +40,9 @@ const Wrapper = styled.div`
   display: flex;
   width: 100%;
   max-width: 1680px;
+  padding: 0 10px;
   margin: auto;
+  background-color: ${colors.background};
 
   @media ${devices.mobileOnly} {
     flex-direction: column;
@@ -51,7 +54,6 @@ const DesktopSideBar = styled.div`
   display: flex;
   flex-direction: column;
   padding: 32px 24px;
-  background-color: ${colors.background};
   /* border-left: 1px solid ${colors.grey}; */
   border-right: 1px solid ${colors.grey};
   min-height: 100vh;
@@ -94,7 +96,6 @@ const MobileFab = styled.div`
 
 const Content = styled.div`
   padding: 40px;
-  background-color: ${colors.background};
   width: 100%;
   @media ${devices.mobileOnly} {
     padding: 0;

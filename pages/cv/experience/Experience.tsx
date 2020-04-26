@@ -1,9 +1,17 @@
+import { useEffect } from "react";
 import Cardbox from "components/cardbox/Cardbox";
 import { experienceData } from "api/data";
 import styled from "styled-components";
 import colors from "shared/colors";
+import { useRouter } from "next/router";
 
 const Experience = () => {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push("/cv?slug=experience", undefined, { shallow: true });
+  }, []);
+
   const { data } = experienceData;
   return (
     <div>
@@ -24,5 +32,5 @@ const CardList = styled.div`
   gap: 24px;
   /* border-right: 1px solid ${colors.grey}; */
 
-`
+`;
 export default Experience;

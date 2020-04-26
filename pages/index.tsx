@@ -7,7 +7,7 @@ import colors from "shared/colors";
 
 const Index = () => {
   return (
-    <Container>
+    <Wrapper>
       <img className="desktopImg" src={AlexImg} />
       <img className="mobileImg" src={AlexImgMobile} />
       <WelcomeTextArea>
@@ -19,11 +19,11 @@ const Index = () => {
         <hr />
         <SourceTree fromTopPage={true} />
       </WelcomeTextArea>
-    </Container>
+    </Wrapper>
   );
 };
 
-const Container = styled.div`
+const Wrapper = styled.div`
   display: flex;
   width: 100%;
   height: 100%;

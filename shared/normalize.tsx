@@ -19,8 +19,6 @@ export default css.global`
     font-size: 1.8rem;
     color: "2E2D2D";
     background-color: ${colors.outerBackground};
-    // background-color: #f5f5f5;
-    // background-color: white;
   }
 
   span {
