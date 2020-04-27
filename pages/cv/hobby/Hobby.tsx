@@ -6,6 +6,7 @@ import AlexPool from "public/images/alex-pool.png";
 import ReactPlayer from "react-player";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import devices from "shared/media";
 
 const Hobby = () => {
   const router = useRouter();
@@ -49,6 +50,22 @@ const Hobby = () => {
             volum={0.2}
           />
         </MediaContent>
+        <MediaContentMobile>
+          <ReactPlayer
+            width={340}
+            height={400}
+            controls
+            url={BackLeverWalk}
+            volum={0.2}
+          />
+          <ReactPlayer
+            width={340}
+            height={400}
+            controls
+            url={Muscleups}
+            volum={0.2}
+          />
+        </MediaContentMobile>
       </HobbyView>
 
       {/* <HobbyView>
@@ -107,5 +124,18 @@ const HobbyImage = styled.img`
 
 const MediaContent = styled.div`
   display: flex;
+
+  @media ${devices.tabletOnly} {
+    display: none;
+  }
+`;
+
+const MediaContentMobile = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media ${devices.notTablet} {
+    display: none;
+  }
 `;
 export default Hobby;
