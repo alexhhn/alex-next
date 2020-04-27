@@ -63,7 +63,7 @@ const Container = styled.div`
 const IndentItems = styled.div`
   margin-left: 0.5em;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
 `;
 
 const IndexFileWrapper = styled.div`

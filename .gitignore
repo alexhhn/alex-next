@@ -7,3 +7,4 @@ sanity.json
 build
 .DS_Store
 *.tgz
+.now

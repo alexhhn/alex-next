@@ -21,8 +21,8 @@ const Hobby = () => {
       </h1>
       <p>
         A great work-life balance makes a efficient developer! Beside staring at
-        my laptop all day, I lot of random stuffs, some of them are listed below
-        (excuse my language in some of the videos *emoji*):
+        my laptop all day, I lot of random stuffs, some of them are listed
+        below:
       </p>
 
       <HobbyView>
@@ -62,22 +62,18 @@ const Hobby = () => {
 
       <HobbyView>
         <h3>Traveling</h3>
-        <p>
-          I am not good at taking breaks, except while traveling - I would do
-          nothing else than chilling. I am not the best at saving money, mostly
-          because I travel whenever I have the chance. Honestly, I have no
-          regrets :)
-        </p>
+        <p>I am not good at taking breaks, except while traveling</p>
         <HobbyImage src={Halongbay} />
       </HobbyView>
-      <HobbyView>
+      <h2>Not finished page, need more content</h2>
+      {/* <HobbyView>
         <h3>Friends & family</h3>
         <p>
           Beside other stuff aboves, I use the rest of my time to be with my
           friends and family.
         </p>
         <HobbyImage src={Halongbay} />
-      </HobbyView>
+      </HobbyView> */}
     </Wrapper>
   );
 };

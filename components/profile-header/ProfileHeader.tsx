@@ -40,7 +40,7 @@ const Container = styled.div<Props>`
     justify-content: flex-end;
     margin: 0 0 20px 14px;
 
-    @media ${devices.mobileOnly} {
+    @media ${devices.laptopOnly} {
       margin: 0 0 20px 30px;
     }
   }

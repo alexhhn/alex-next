@@ -4,7 +4,7 @@ import Hobby from "./hobby/Hobby";
 import Algorithms from "./algorithms/Algorithms";
 import { experienceData, projectsData, hobbyData } from "api/data";
 
-const RenderPageByPath = (path: string | string[]) => {
+export const RenderPageByPath = (path: string | string[]) => {
   switch (path) {
     case experienceData.path:
       return <Experience />;
@@ -12,11 +12,11 @@ const RenderPageByPath = (path: string | string[]) => {
       return <Projects />;
     case hobbyData.path:
       return <Hobby />;
-    case 'algorithms':
+    case "algorithms":
       return <Algorithms />;
     default:
       return <h1>Default path</h1>;
   }
 };
 
-export { RenderPageByPath };
+export default RenderPageByPath;

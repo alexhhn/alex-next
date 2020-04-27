@@ -44,7 +44,7 @@ const Wrapper = styled.div`
   margin: auto;
   background-color: ${colors.background};
 
-  @media ${devices.mobileOnly} {
+  @media ${devices.tabletOnly} {
     flex-direction: column;
     padding: 1em;
   }
@@ -56,22 +56,23 @@ const DesktopSideBar = styled.div`
   padding: 32px 24px;
   border-right: 1px solid ${colors.grey};
   min-height: 100vh;
+  min-width: 300px;
 
-  @media ${devices.mobileOnly} {
+  @media ${devices.tabletOnly} {
     display: none;
   }
 `;
 
 const MobileTopBar = styled.div`
-  @media ${devices.notMobile} {
+  @media ${devices.notTablet} {
     display: none;
   }
 `;
 
 const Content = styled.div`
-  padding: 40px;
+  padding: 30px;
   width: 100%;
-  @media ${devices.mobileOnly} {
+  @media ${devices.tabletOnly} {
     padding: 0;
   }
 `;

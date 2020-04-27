@@ -19,19 +19,21 @@ const Cardbox = ({ data }: Props) => {
   } = data;
   return (
     <Wrapper variant="outlined">
-      <TopArea>
-        <Header>
-          <div>
-            <img src={`images/${imgSrc}`} />
-            <h2>{title}</h2>
-          </div>
-          <p>{periode}</p>
-        </Header>
-        <SubTitle>{subTitle}</SubTitle>
-      </TopArea>
       <div>
-        <h3>{jobTitle}</h3>
-        <p>{description}</p>
+        <TopArea>
+          <Header>
+            <div>
+              <img src={`images/${imgSrc}`} />
+              <h2>{title}</h2>
+            </div>
+            <p>{periode}</p>
+          </Header>
+          <SubTitle>{subTitle}</SubTitle>
+        </TopArea>
+        <div>
+          <h3>{jobTitle}</h3>
+          <p>{description}</p>
+        </div>
       </div>
       <code>
         {buzzwords.map((word, i) => (
@@ -45,7 +47,7 @@ const Cardbox = ({ data }: Props) => {
 const Wrapper = styled(Card)`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 30px;
 
   &.MuiPaper-root {
@@ -54,6 +56,7 @@ const Wrapper = styled(Card)`
 
   img {
     width: 40px;
+    height: 40px;
     object-fit: contain;
     margin-right: 12px;
   }
