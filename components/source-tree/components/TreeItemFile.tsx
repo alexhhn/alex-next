@@ -24,7 +24,6 @@ const TreeItemFile = ({
   isBold,
   hideType,
 }: Props) => {
-  console.log("isLowercase :", isLowercase);
   return (
     <Wrapper
       compact={compact}

@@ -1,5 +1,5 @@
 import experienceData from "./experienceData";
-import projectsData from "./projectsData";
+import projectsData, { sideProjectsData } from "./projectsData";
 
 const hobbyData: PageData = {
   title: "Livet mitt utenfor progging",
@@ -10,4 +10,4 @@ const hobbyData: PageData = {
 const pages: PageData[] = [experienceData, projectsData, hobbyData];
 
 export default pages;
-export { experienceData, projectsData, hobbyData };
+export { experienceData, projectsData, hobbyData, sideProjectsData };

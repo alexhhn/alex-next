@@ -21,8 +21,8 @@ const Hobby = () => {
         <pre>while(!coding)</pre>
       </h1>
       <p>
-        A great work-life balance makes a efficient developer! Beside staring at
-        my laptop all day, I lot of random stuffs, some of them are listed
+        A great work-life balance makes an efficient developer! Beside staring
+        at my laptop all day, I do lot of other things, some of them are listed
         below:
       </p>
 

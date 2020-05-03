@@ -13,7 +13,7 @@ const Index = () => {
       <WelcomeTextArea>
         <h1>Hi, I'm Alex</h1>
         <IntroText>
-          A front-end developer based in Oslo, Norway. Feel free to browse my
+          An ambitious developer based in Oslo, Norway. Feel free to browse my
           page!
         </IntroText>
         <hr />

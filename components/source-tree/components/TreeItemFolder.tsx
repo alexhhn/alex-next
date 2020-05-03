@@ -22,7 +22,6 @@ const TreeItemFolder = ({
   containFiles,
   compact,
 }: Props) => {
-  console.log("compact :", compact);
   // const { setPath } = useContext(PathContext);
   const isBold = isOpen && containFiles;
 
